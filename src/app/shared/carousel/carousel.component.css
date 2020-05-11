@@ -1,0 +1,30 @@
+img {
+    width: 100%;
+    height: 500px;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    object-fit: cover;
+}
+
+@media (max-width: 600px) {
+    slide {
+        height: 280px;
+    }
+}
+
+
+/* ::ng-deep .carousel-control-prev,
+ ::ng-deep .carousel-control-next {
+    background-color: white;
+} */
+
+ ::ng-deep .carousel .carousel-control-prev-icon,
+ ::ng-deep .carousel .carousel-control-next-icon {
+    background-color: #000;
+    width: 45px;
+    height: 45px;
+    background-size: 41%;
+    border-radius: 50%;
+}

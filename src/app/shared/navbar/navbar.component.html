@@ -1,0 +1,23 @@
+<nav ngxNavbarDynamicExpand class="navbar-dark bg-dark">
+    <a href="#" class="navbar-brand">
+        <img src="assets/img/20084.jpg" height="40" alt=""> Florería La Plazuela
+    </a>
+
+    <button class="navbar-toggler" type="button" (click)="collapse.toggle()" aria-controls="main-nav" aria-expanded="false" aria-label="Navigáció kapcsoló">
+      <span class="navbar-toggler-icon d-flex align-items-center justify-content-center">
+      </span>
+    </button>
+    <ngx-navbar-collapse id="main-nav" #collapse="ngxNavbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#"><i class="fas fa-home"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Flores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Regalos</a>
+            </li>
+        </ul>
+    </ngx-navbar-collapse>
+</nav>
