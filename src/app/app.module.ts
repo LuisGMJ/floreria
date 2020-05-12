@@ -1,3 +1,4 @@
+import { APP_BASE_HREF } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -48,7 +49,10 @@ import { SafeDomPipe } from './shared/pipes/safe-dom.pipe';
     CarouselModule,
     ModalModule.forRoot()
   ],
-  providers: [BsModalRef],
+  providers: [
+    {provide: APP_BASE_HREF, useValue: '/'},
+    BsModalRef
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
