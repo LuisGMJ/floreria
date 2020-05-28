@@ -1,3 +1,9 @@
-a {
+a,
+p,
+h4 {
     color: rgb(243, 188, 49) !important;
+}
+
+.color-vino {
+    background-color: rgb(97, 5, 36) !important;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralDataService } from '../../services/general-data.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  titleflipbook = 'Arreglos destacados';
+
+  constructor(private dataService: GeneralDataService) { }
 
   ngOnInit(): void {
+    this.dataService.getData().subscribe();
   }
 
 }

@@ -1,0 +1,8 @@
+img {
+    cursor: zoom-in;
+    transition: 1s;
+}
+
+img:hover {
+    transform: scale(1.5);
+}

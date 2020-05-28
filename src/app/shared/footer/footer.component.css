@@ -11,3 +11,7 @@ hr {
 h4 {
     color: white !important;
 }
+
+.color-vino {
+    background-color: rgb(97, 5, 36) !important;
+}
