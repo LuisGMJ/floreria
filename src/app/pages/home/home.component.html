@@ -1,12 +1,14 @@
-<app-carousel></app-carousel>
+<app-carousel [carouselData]="carouselData"></app-carousel>
+
+<hr>
+<h5 class="text-center gray">
+    {{titleflipbook}}
+</h5>
+<div class="container border">
+    <app-flip-book *ngIf="productsData" [productsData]="productsData"></app-flip-book>
+    <app-loading *ngIf="!productsData"></app-loading>
+</div>
 
 <div class="container">
-    <hr>
-    <h5 class="text-center gray">
-        {{titleflipbook}}
-    </h5>
-    <hr>
-    <app-flip-book></app-flip-book>
-
     <app-maps></app-maps>
 </div>

@@ -1,9 +1,11 @@
-<h4 class="text-uppercase text-center mt-2">{{titleCarousel}}</h4>
+<div *ngIf="carouselData">
+    <h4 class="text-uppercase text-center mt-2">{{carouselData['title']}}</h4>
 
-<div class="container-carousel">
-    <carousel [isAnimated]="true">
-        <slide *ngFor="let slide of slides; let i=index">
-            <img [src]="slide.image" alt="first slide">
-        </slide>
-    </carousel>
+    <div class="container-carousel">
+        <carousel [isAnimated]="true">
+            <slide *ngFor="let slide of carouselData['image']; let i=index">
+                <img [src]="slide" alt="first slide">
+            </slide>
+        </carousel>
+    </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralDataService } from '../../services/general-data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -6,15 +7,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+  pagetitle = '';
+  logo = '';
+
   isCollapsed = true;
 
   reasons = [
     'Aniversario', 'Boda', 'Cumpleaños', 'Funerarios', 'Día de las madres'
-  ]
+  ];
 
-  constructor() { }
+  constructor(private dataService: GeneralDataService) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('generalData')) {
+      this.pagetitle = this.dataService.readLocalData()['pagetitle'];
+    } else {
+      this.getGeneralData();
+    }
+  }
+
+  getGeneralData() {
+    this.dataService.getDataFromDb().subscribe(data => {
+      this.pagetitle = data['pagetitle'];
+    });
   }
 
 }

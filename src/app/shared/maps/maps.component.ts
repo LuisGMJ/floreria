@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapsComponent implements OnInit {
 
-  mapLink = 'https://www.google.com/maps/d/embed?mid=1Yh6rAPUJmKrBfCUpfTuJkSwAueIFttTJ';
-  constructor() { }
+  mapLink = '';
+  constructor() { 
+    this.mapLink = 'https://www.google.com/maps/d/embed?mid=1Yh6rAPUJmKrBfCUpfTuJkSwAueIFttTJ';
+  }
 
   ngOnInit(): void {
   }

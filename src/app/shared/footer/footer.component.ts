@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralDataService } from '../../services/general-data.service';
+import { GeneralData } from '../../models/general-data.model';
 
 @Component({
   selector: 'app-footer',
@@ -8,11 +10,22 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   year = new Date().getFullYear();
+  data: GeneralData;
 
-  constructor() { }
+  constructor(private dataService: GeneralDataService) { }
 
   ngOnInit(): void {
-    let title = 'titulo';
+    if (localStorage.getItem('generalData')) {
+      this.data = this.dataService.readLocalData();
+    } else {
+      this.getGeneralData();
+    }
+  }
+
+  getGeneralData() {
+    this.dataService.getDataFromDb().subscribe(data => {
+      this.data = data;
+    });
   }
 
 }

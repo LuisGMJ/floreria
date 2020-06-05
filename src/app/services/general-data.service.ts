@@ -11,10 +11,21 @@ export class GeneralDataService {
 
   constructor(private db: AngularFirestore) { }
 
-  getData(): Observable<any> {
-    return this.db.collection<any>('/generaldata').
-      valueChanges().pipe(
-        map(data => console.log(data))
-      );
+  getDataFromDb(): Observable<any> {
+      return this.db.collection<any>('/generaldata').
+        valueChanges().pipe(
+          map(data => {
+            this.setData(data[0]);
+            return data[0];
+          })
+        );
+  }
+
+  readLocalData() {
+    return JSON.parse(localStorage.getItem('generalData'));
+  }
+
+  setData(generalData: any) {
+    localStorage.setItem('generalData', JSON.stringify(generalData));
   }
 }

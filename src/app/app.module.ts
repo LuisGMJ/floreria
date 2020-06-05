@@ -32,6 +32,7 @@ import { MapsComponent } from './shared/maps/maps.component';
 
 import { SafeDomPipe } from './shared/pipes/safe-dom.pipe';
 import { environment } from '../environments/environment';
+import { LoadingComponent } from './shared/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { environment } from '../environments/environment';
     DetailsComponent,
     ModalComponent,
     MapsComponent,
-    SafeDomPipe
+    SafeDomPipe,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

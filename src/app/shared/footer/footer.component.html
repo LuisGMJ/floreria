@@ -2,31 +2,30 @@
     <div class="row col-md-12 container">
         <div class="col-md-4 mt-3">
             <h4>Dirección</h4>
-            <p>Rayón 133 y Victoría 106, Zona Centro, 37900 San Luis de la Paz, Gto.</p>
+            <p>{{data.address}}</p>
         </div>
 
         <div class="col-md-4 mt-3">
-            <h4>Horarios:</h4>
-            <span>Lunes - Sábado: 9:00 - 21:00</span><br>
-            <span>Domingo: 9:00 - 19:00</span>
+            <h4>Horario:</h4>
+            <p *ngFor="let schedule of data.schedule">{{schedule}}</p>
         </div>
 
         <div class="col-md-4 mt-3">
             <h4>Contáctanos</h4>
-            <span>
-                    <i class="fas fa-phone-square"></i><a href="tel:+524686887330"> Tel: 468 688 7330</a><br>
-                </span>
-            <span>
-                    <i class="fas fa-at"></i><a href="mailto:floreriaplazuela@gmail.com"> floreriaplazuela@gmail.com</a>
-                </span>
+            <p *ngFor="let phone of data.telephonenumbers">
+                <i class="fas fa-phone-square"></i> Tel: {{phone}}
+            </p>
+            <p *ngFor="let email of data.email">
+                <i class="fas fa-at"></i><a [href]="'mailto:' + email"> {{email}}</a>
+            </p>
             <h5 class="text-white mt-1">Siguenos en:</h5>
             <span>
-                    <i class="fab fa-facebook-square"></i><a href="https://www.facebook.com/Florister%C3%ADa-La-Plazuela-1338178436292717/" target="_blank"> Facebook</a>
-                </span>
+                <i class="fab fa-facebook-square"></i><a [href]="data.socialnetworks['facebook']" target="_blank"> Facebook</a>
+            </span>
         </div>
     </div>
     <hr>
     <div class="row col-md-12 text-white justify-content-center">
-        <p class="mt-3">&copy; {{year}} Floristeria "La Plazuela". Todos los Derechos Reservados</p>
+        <p class="mt-3">&copy; {{year}} {{data.pagetitle}}. Todos los Derechos Reservados</p>
     </div>
 </div>

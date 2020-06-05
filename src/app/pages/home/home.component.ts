@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneralDataService } from '../../services/general-data.service';
+import { CarouselDataService } from '../../services/carousel-data.service';
+import { ProductsDataService } from '../../services/products-data.service';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +12,14 @@ export class HomeComponent implements OnInit {
 
   titleflipbook = 'Arreglos destacados';
 
-  constructor(private dataService: GeneralDataService) { }
+  carouselData = {};
+  productsData: any;
+
+  constructor(private carouselService: CarouselDataService, private productsService: ProductsDataService) { }
 
   ngOnInit(): void {
-    this.dataService.getData().subscribe();
+    this.carouselService.getCarouselData().subscribe(data => this.carouselData = data);
+    this.productsService.getProductsData().subscribe(data => this.productsData = data);
   }
 
 }
