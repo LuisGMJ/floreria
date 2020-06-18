@@ -1,11 +1,17 @@
 <app-carousel [carouselData]="carouselData"></app-carousel>
-
-<hr>
 <h5 class="text-center gray">
     {{titleflipbook}}
 </h5>
+
+<hr>
 <div class="container border">
-    <app-flip-book *ngIf="productsData" [productsData]="productsData"></app-flip-book>
+    <app-flip-book *ngIf="productsData" [productsData]="tableData"></app-flip-book>
+    <!-- Pagination -->
+    <div class="row justify-content-between align-items-center">
+        <button class="btn btn-info ml-4 mb-4" (click)="prevPage()" [disabled]="disable_prev || !(pagination_clicked_count>0)">Anterior</button> <b class="mb-4 font-italic">Pagina: {{pagination_clicked_count+1}}</b>
+        <button class="btn btn-info mr-4 mb-4" (click)="nextPage()" [disabled]="disable_next">Siguiente</button>
+    </div>
+
     <app-loading *ngIf="!productsData"></app-loading>
 </div>
 

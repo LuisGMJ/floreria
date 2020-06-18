@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneralDataService } from '../../services/general-data.service';
+import { GeneralData } from '../../models/general-data.model';
+import { ProductsDataService } from '../../services/products-data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,20 +10,22 @@ import { GeneralDataService } from '../../services/general-data.service';
 })
 export class NavbarComponent implements OnInit {
 
-  pagetitle = '';
-  logo = '';
-
   isCollapsed = true;
+  reasonsIsCollapsed = true;
+
+  data: GeneralData;
 
   reasons = [
     'Aniversario', 'Boda', 'Cumpleaños', 'Funerarios', 'Día de las madres'
   ];
 
-  constructor(private dataService: GeneralDataService) { }
+  constructor(private dataService: GeneralDataService,
+              private productsService: ProductsDataService) { }
 
   ngOnInit(): void {
+    this.productsService.getProductTypeList().subscribe(list => this.reasons = list.type);
     if (localStorage.getItem('generalData')) {
-      this.pagetitle = this.dataService.readLocalData()['pagetitle'];
+      this.data = this.dataService.readLocalData();
     } else {
       this.getGeneralData();
     }
@@ -29,7 +33,7 @@ export class NavbarComponent implements OnInit {
 
   getGeneralData() {
     this.dataService.getDataFromDb().subscribe(data => {
-      this.pagetitle = data['pagetitle'];
+      this.data = data;
     });
   }
 

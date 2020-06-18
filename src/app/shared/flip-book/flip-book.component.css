@@ -60,7 +60,7 @@ img {
     box-sizing: border-box;
     transform-origin: left;
     z-index: 1;
-    transition: 1s;
+    transition: .9s;
 }
 
 .card:hover .imgBox {
